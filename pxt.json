@@ -4,7 +4,9 @@
     "dependencies": {
         "core": "*",
         "microturtle": "github:microsoft/pxt-microturtle#v0.0.10",
-        "microphone": "*"
+        "microphone": "*",
+        "radio": "*",
+        "radio-broadcast": "*"
     },
     "files": [
         "main.blocks",

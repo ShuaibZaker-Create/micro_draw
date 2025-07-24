@@ -18,6 +18,10 @@ def on_button_pressed_b():
     turtle.turn_right()
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
-def on_logo_pressed():
-    turtle.home()
-input.on_logo_event(TouchButtonEvent.PRESSED, on_logo_pressed)
+def on_gesture_logo_down():
+    for index in range(100):
+        control.wait_micros(6000)
+    for index2 in range(1000):
+        control.wait_micros(4000)
+    control.reset()
+input.on_gesture(Gesture.LOGO_DOWN, on_gesture_logo_down)

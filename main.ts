@@ -1,9 +1,16 @@
 let pen_status = 0
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
+input.onButtonPressed(Button.A, function () {
     turtle.forward(1)
 })
-input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
-    
+input.onGesture(Gesture.FreeFall, function () {
+    Wait(1)
+    control.reset()
+})
+input.onGesture(Gesture.ScreenDown, function () {
+    Wait(1)
+    control.reset()
+})
+input.onButtonPressed(Button.AB, function () {
     if (pen_status == 0) {
         turtle.pen(TurtlePenMode.Down)
         pen_status = 1
@@ -11,11 +18,22 @@ input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
         turtle.pen(TurtlePenMode.Up)
         pen_status = 0
     }
-    
 })
-input.onButtonPressed(Button.B, function on_button_pressed_b() {
+input.onButtonPressed(Button.B, function () {
     turtle.turnRight()
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function on_logo_pressed() {
-    turtle.home()
+input.onGesture(Gesture.Shake, function () {
+    Wait(1)
+    control.reset()
 })
+input.onGesture(Gesture.LogoDown, function () {
+    Wait(1)
+    control.reset()
+})
+function Wait (num: number) {
+    for (let index = 0; index < num; index++) {
+        for (let index = 0; index < 1000; index++) {
+            control.waitMicros(1000)
+        }
+    }
+}
